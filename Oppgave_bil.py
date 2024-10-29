@@ -35,13 +35,13 @@ EL_BOM_KM_AAR=EL_BOM_KM*KM_AAR #bomkostnader per år elbil
 BEN_BOM_KM_AAR= BEN_BOM_KM*KM_AAR #bokkostnader per år bensinbil
 EL_TOTKOST_AAR = EL_FOR_AAR + BIL_TFA_AAR + (KM_AAR*EL_KR_KWH_KM)+(KM_AAR*EL_BOM_KM) #totale kostander for elbil per år gitt KMAAR km
 BEN_TOTKOST_AAR =  BEN_FOR_AAR + BIL_TFA_AAR + (KM_AAR*BEN_KR_KM)+(KM_AAR*BEN_BOM_KM) #totale kostnader for bensingbil per år gitt KMAAR km.
-EL_TOTKOST_AAR_AVRUND = int(EL_TOTKOST_AAR)
-BEN_TOTKOST_AAR_AVRUND = int(BEN_TOTKOST_AAR)
-EL_TOTKOST_AAR_TUSENST = locale.format_string('%d', EL_TOTKOST_AAR, grouping=True)
-BEN_TOTKOST_AAR_TUSENST = locale.format_string ('%d', BEN_TOTKOST_AAR, grouping=True)
+EL_TOTKOST_AAR_AVRUND = int(EL_TOTKOST_AAR) # runder av til heltall
+BEN_TOTKOST_AAR_AVRUND = int(BEN_TOTKOST_AAR) # runder av til heltall
+EL_TOTKOST_AAR_TUSENST = locale.format_string('%d', EL_TOTKOST_AAR, grouping=True) #spesifiserer at det skal være heltakk og siden jeg har brukt norsk locale blir grupperingen tusenskilletegn med mellomrom
+BEN_TOTKOST_AAR_TUSENST = locale.format_string ('%d', BEN_TOTKOST_AAR, grouping=True) # se over
 DIFFERANSE_BE_EL=BEN_TOTKOST_AAR - EL_TOTKOST_AAR
-DIFFERANSE_BE_EL_TUSENST=locale.format_string ('%d', DIFFERANSE_BE_EL, grouping= True)
-
+DIFFERANSE_BE_EL_TUSENST=locale.format_string ('%d', DIFFERANSE_BE_EL, grouping= True) #se over
+ 
 
 print('Trafikkforsikringsavgift per år:', BIL_TFA_AAR,',-')
 print ('Forsikring for elbil per år:', EL_FOR_AAR,',-')
